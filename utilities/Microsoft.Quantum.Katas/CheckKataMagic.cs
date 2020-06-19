@@ -3,6 +3,7 @@
 
 using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Jupyter.Core;
@@ -71,7 +72,7 @@ namespace Microsoft.Quantum.Katas
         /// - semi-compile the code after to identify the name of the operation with the user's answer.
         /// - call simulate to execute the test.
         /// </summary>
-        public virtual async Task<ExecutionResult> Run(string input, IChannel channel)
+        public virtual async Task<ExecutionResult> Run(string input, IChannel channel, CancellationToken cancellationToken)
         {
             channel = channel.WithNewLines();
 

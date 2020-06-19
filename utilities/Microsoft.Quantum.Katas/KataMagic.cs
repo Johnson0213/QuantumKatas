@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.Extensions.Logging;
@@ -82,7 +83,7 @@ namespace Microsoft.Quantum.Katas
         /// - compile the code after found after the name as the user's answer.
         /// - run (simulate) the test and report its result.
         /// </summary>
-        public virtual async Task<ExecutionResult> Run(string input, IChannel channel)
+        public virtual async Task<ExecutionResult> Run(string input, IChannel channel, CancellationToken cancellationToken)
         {
             channel = channel.WithNewLines();
 
